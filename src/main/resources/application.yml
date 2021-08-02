@@ -1,0 +1,17 @@
+spring:
+  # [rabbit mq config]
+  rabbitmq:
+    host:
+    port: 8080
+    username:
+    password:
+
+    # [rabbitmq retry config]
+    listener:
+      simple:
+        retry:
+          enabled: true # spring을 이용한 retry 활성화
+          initial-interval: 3 # N번째 소비와 N+1번째 사이의간격은 3초
+          max-interval: 10 # N번째 소비와 N+1번째 최대간격은 10초
+          multiplier: 2
+          max-attempts: 5 # 5번 시도
